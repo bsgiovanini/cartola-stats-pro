@@ -3,7 +3,7 @@ import React from 'react';
 function About() {
   return (
     <div className="container about">
-      <h1>About hepyaay</h1>
+      <h1>About hepyaa</h1>
     </div>
   )
 }

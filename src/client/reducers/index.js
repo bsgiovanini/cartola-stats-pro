@@ -1,7 +1,13 @@
-import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state,
-});
+import {SEARCH_TEAM} from '../actions/index';
 
-export default rootReducer;
+export function searchTeam(state = {}, action) {
+  switch (action.type) {
+    case SEARCH_TEAM:
+    	return {
+	    	teamName : action.text
+	    };
+    default:
+      return state
+  }
+} 

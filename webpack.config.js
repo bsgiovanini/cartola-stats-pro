@@ -11,6 +11,7 @@ const config = {
     rules: [
       { 
         test: /\.(js|jsx)$/, 
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
@@ -31,7 +32,13 @@ const config = {
       {
         test: /\.css$/, // Only .css files
         loader: "style-loader!css-loader"// Run both loaders
-      }
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader'
+      },
+
       
     ]
   }
