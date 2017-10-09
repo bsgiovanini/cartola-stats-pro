@@ -7,22 +7,12 @@ import {Route} from 'react-router-dom';
 
 class Main extends React.Component {
 
-  componentWillMount() {
-    //this.ref = base.syncState('aboutmeText',{
-    //  context: this.props,
-   // //  state: 'aboutmeText'
-   // });
-  }
-
-  compoenentWillUnmount() {
-    //base.removeBinding(this.ref);
-  }
-
   render() {
-    
+    console.log(this.props.location);
     return (    
       <div className="mainContent">
       	  <Header/>
+
 	      <Route exact path="/" render= { 
 	      	()  => <Home 
 		             teamName={this.props.teamName} 

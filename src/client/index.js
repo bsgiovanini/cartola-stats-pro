@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { Router} from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { BrowserRouter} from 'react-router-dom';
 import { routerReducer as routing } from 'react-router-redux';
 import {ApolloClient, ApolloProvider, createNetworkInterface} from 'react-apollo';
 import { syncHistoryWithStore } from 'react-router-redux';
@@ -17,7 +16,7 @@ import './components/bundle.scss';
 const defaultState = {
 
 	searchTeamReducer:{
-		teamName: "vasco"
+		teamName: ""
 	}
 };
 
@@ -31,8 +30,7 @@ const client = new ApolloClient({
 const store = createStore(
   combineReducers({
     searchTeamReducer: searchTeam,
-    apollo: client.reducer(),
-    routing
+    apollo: client.reducer()
   }),
   defaultState, // initial state
   compose(
@@ -42,12 +40,10 @@ const store = createStore(
   )
 );
 
-const history = syncHistoryWithStore(createBrowserHistory(), store);
-
 ReactDOM.render(
   <ApolloProvider client={client} store={store}>
-    <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+    <BrowserRouter>
        <AppContainer/>
-    </Router>
+    </BrowserRouter>
   </ApolloProvider>
   , document.getElementById('react-root'));
