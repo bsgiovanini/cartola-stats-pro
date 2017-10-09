@@ -1,6 +1,5 @@
 import {gql, graphql} from 'react-apollo';
 import TeamList from './TeamList'
-import {withRouter} from 'react-router-dom';
 
 let teamsListQuery = gql`
 	query SearchByTeam($teamName: String){
@@ -26,4 +25,4 @@ const TeamsListWithData = graphql(teamsListQuery, {
  })(TeamList);
 
 
-export default withRouter(TeamsListWithData);
+export default TeamsListWithData;
